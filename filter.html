@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery.js"></script>
+</head>
+<body>
+    <ul>
+        <li class="list active" data-filters="All">All</li>
+        <li class="list active" data-filters="phone">iphone</li>
+        <li class="list active" data-filters="watch">watch</li>
+        <li class="list active" data-filters="cars">cars</li>
+    </ul>
+    <div class="product">
+        <img src="./phone.jpg" alt="" height="500" width="700" class="itembox phone">
+        <img src="./watch.jpg" alt="" height="500" width="700" class="itembox watch">
+        <img src="./car.jpg" alt="" height="500" width="700"     class="itembox cars">
+    </div>
+    <script>
+        $("document").ready(function(){
+            $(".list").click(function(){
+                let value = $(this).attr('data-filters')
+                if(value == 'All'){
+                    $(".itembox").show(1000)
+                } else{
+                    $(".itembox").not('.'+value).hide(1000)
+                    $(".itembox"+value).show(1000)
+                }
+            })
+        })
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul{
+            display: flex;
+        }
+        ul li{
+            list-style: none;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>
